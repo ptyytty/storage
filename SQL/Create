@@ -1,0 +1,42 @@
+CREATE TABLE Player (
+  id_player INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(50) UNIQUE,
+  pwd VARCHAR(225),
+  money INT DEFAULT 1000, -- 초기 금액 설정
+  nickname VARCHAR(100),
+  characters JSON DEFAULT ('[]'),
+  inventory JSON DEFAULT ('[]'),      
+  friends JSON DEFAULT ('[]')       
+);
+
+CREATE TABLE Skill (
+  id_skill INT PRIMARY KEY,
+  name_skill VARCHAR(20),
+  dmg INT,
+  target TINYINT(3),
+  toc TINYINT(3),
+  area TINYINT(3),
+  id_job INT,
+  id_monster INT
+);
+
+CREATE TABLE Job (
+  id_job INT PRIMARY KEY,
+  name_job VARCHAR(20),
+  hp INT,
+  def INT,
+  res INT,
+  spd INT,
+  hit INT
+);
+
+CREATE TABLE Monster (
+  id_monster INT PRIMARY KEY,
+  name_monster VARCHAR(20),
+  dungeon TINYINT(5),
+  hp INT,
+  def INT,
+  res INT,
+  spd INT,
+  hit INT
+);
